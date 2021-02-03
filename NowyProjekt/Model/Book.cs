@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace NowyProjekt.Model
 {
-    class Book
+    public class Book
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }

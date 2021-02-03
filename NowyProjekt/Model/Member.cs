@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace NowyProjekt.Model
 {
-    class Member
+    public class Member
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
