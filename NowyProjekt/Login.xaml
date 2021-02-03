@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="70" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="508"><Run Text="Log"/><Run Text="in"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="66,131,0,0" Text="Email:" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.471,-1.166"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,240,0,0" Text="Password:" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+
+        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="312,131,0,0" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="47"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Margin="312,240,0,0" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+
+
+        <Button x:Name="login" Content="Login" FontSize="30" HorizontalAlignment="Center" Margin="0,336,0,0" VerticalAlignment="Top" Height="73" Width="176"/>
+
     </Grid>
 </Window>

@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="Register" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center" Text="Register" FontSize="50" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="508"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,89,0,0" Text="First name:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="194"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,142,0,0" Text="Last Name:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,190,0,0" Text="Email:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,242,0,0" Text="Phone:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,289,0,0" Text="Password:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,332,0,0" Text="Confirm Password:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="312,89,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="31"/>
+        <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="312,142,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="312,188,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="312,242,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Margin="312,288,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <TextBox x:Name="confirmPassword" HorizontalAlignment="Left" Margin="312,332,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+
+
+        <Button x:Name="register" Content="Register" FontSize="30" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Height="44" Width="144"/>
+
     </Grid>
 </Window>
