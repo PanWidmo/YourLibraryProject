@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace NowyProjekt
 {
     /// <summary>
@@ -27,8 +28,41 @@ namespace NowyProjekt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void register_Click(object sender, RoutedEventArgs e)
+        private void register_Click(object sender, RoutedEventArgs e) 
         {
+
+
+            if (string.IsNullOrEmpty(firstName.Text) || string.IsNullOrEmpty(lastName.Text) || string.IsNullOrEmpty(email.Text)
+                || string.IsNullOrEmpty(phone.Text) || string.IsNullOrEmpty(password.Text) || string.IsNullOrEmpty(confirmPassword.Text))
+            {
+                MessageBox.Show("Please enter text in box!");
+            }
+            else
+            {
+                using (var dbContext = new Model.LibraryContext())
+                {
+                    Model.Member member = new Model.Member()
+                    {
+                        FirstName=firstName.Text,
+                        LastName=lastName.Text,
+                        Email=email.Text,
+                        Phone = Convert.ToInt32(phone.Text),
+                        Password=password.Text
+                    };
+
+                    dbContext.Add(member);
+                    dbContext.SaveChanges();
+
+                    if (member.ID > 0)
+                    {
+                        MessageBox.Show("ID: " + member.ID);
+                    }
+
+                    else MessageBox.Show("Error");
+
+                }
+
+            }
         }
     }
 }

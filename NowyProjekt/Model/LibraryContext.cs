@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NowyProjekt.Model
 {
-    class LibraryContext : DbContext
+    public class LibraryContext : DbContext
     {
         public DbSet<Member> Members { get; set; }
         public DbSet<Order> Orders { get; set; }

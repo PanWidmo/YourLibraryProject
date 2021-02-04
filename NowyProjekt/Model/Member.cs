@@ -17,5 +17,6 @@ namespace NowyProjekt.Model
         public string Password { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
     }
 }

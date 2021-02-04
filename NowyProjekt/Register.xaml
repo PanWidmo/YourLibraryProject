@@ -21,7 +21,7 @@
         <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="312,242,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <TextBox x:Name="password" HorizontalAlignment="Left" Margin="312,288,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <TextBox x:Name="confirmPassword" HorizontalAlignment="Left" Margin="312,332,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-
+        
 
         <Button x:Name="register" Content="Register" FontSize="30" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Height="44" Width="144" Click="register_Click"/>
 
