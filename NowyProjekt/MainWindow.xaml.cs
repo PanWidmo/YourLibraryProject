@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace NowyProjekt
 {
@@ -20,9 +22,16 @@ namespace NowyProjekt
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
-            InitializeComponent();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

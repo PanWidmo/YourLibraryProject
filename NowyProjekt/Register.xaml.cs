@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace NowyProjekt
 {
@@ -20,6 +21,14 @@ namespace NowyProjekt
         public Register()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Insert new member to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

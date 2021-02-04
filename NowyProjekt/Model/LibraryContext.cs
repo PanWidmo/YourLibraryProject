@@ -17,7 +17,7 @@ namespace NowyProjekt.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlite("Data Source=library.db");
+            optionsBuilder.UseSqlite("Data Source=library.db");
 
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
