@@ -12,35 +12,9 @@
                               Source="{Binding Films, Source={StaticResource categoryViewSource}}"/>
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" 
-          EnableRowVirtualization="True" 
-          ItemsSource="{Binding Source={StaticResource categoryViewSource}}" 
-          Margin="13,13,43,229" RowDetailsVisibilityMode="VisibleWhenSelected">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding CategoryId}"
-                            Header="Category Id" Width="SizeToHeader"
-                            IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" 
-                            Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid x:Name="filmsDataGrid" AutoGenerateColumns="False" 
-          EnableRowVirtualization="True" 
-          ItemsSource="{Binding Source={StaticResource categoryFilmsViewSource}}" 
-          Margin="13,205,43,108" RowDetailsVisibilityMode="VisibleWhenSelected" 
-          RenderTransformOrigin="0.488,0.251">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding CategoryId}" 
-                            Header="Category Id" Width="SizeToHeader"
-                            IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding FilmId}" Header="Film Id" 
-                            Width="SizeToHeader" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Actors}" Header="Actors" Width="100"/>
+        <Button x:Name="registerFirstScreen" Content="Register" HorizontalAlignment="Left" FontSize="30" Margin="94,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="registerFirstScreen_Click"/>
+        <Button x:Name="logInFirstScreen" Content="Log In" HorizontalAlignment="Left" FontSize="30" Margin="482,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="logInFirstScreen_Click"/>
+        <Label Content="Welcome to YourLibrary.com" FontSize="40"  HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="64" Width="520"/>
 
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Content="Save" HorizontalAlignment="Center" Margin="0,240,0,0" 
-        Click="Button_Click" Height="20" Width="123"/>
     </Grid>
 </Window>

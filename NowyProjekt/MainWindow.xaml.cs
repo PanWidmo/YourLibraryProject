@@ -29,9 +29,21 @@ namespace NowyProjekt
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void logInFirstScreen_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            this.Close();
+        }
+
+        private void registerFirstScreen_Click(object sender, RoutedEventArgs e)
+        {
+            Register registerWindow = new Register();
+            registerWindow.Show();
+            this.Close();
         }
     }
 }
