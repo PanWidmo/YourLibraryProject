@@ -30,12 +30,14 @@ namespace NowyProjekt
         /// <param name="e"></param>
         private void register_Click(object sender, RoutedEventArgs e) 
         {
-
-
             if (string.IsNullOrEmpty(firstName.Text) || string.IsNullOrEmpty(lastName.Text) || string.IsNullOrEmpty(email.Text)
                 || string.IsNullOrEmpty(phone.Text) || string.IsNullOrEmpty(password.Text) || string.IsNullOrEmpty(confirmPassword.Text))
             {
                 MessageBox.Show("Please enter text in box!");
+            }
+
+            else if(password.Text != confirmPassword.Text){
+                MessageBox.Show("Passwords do not match");
             }
             else
             {
@@ -55,10 +57,14 @@ namespace NowyProjekt
 
                     if (member.ID > 0)
                     {
-                        MessageBox.Show("ID: " + member.ID);
+                        MessageBox.Show("Welcome aboard: "+member.FirstName + " " + member.LastName+"!");
+                        
+
                     }
 
                     else MessageBox.Show("Error");
+                    
+                    
 
                 }
 
