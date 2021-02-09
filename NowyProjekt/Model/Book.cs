@@ -9,10 +9,11 @@ namespace NowyProjekt.Model
 {
     public class Book
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
 
-        //public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<BookDetail> BookDetails { get; set; }
 
     }
 }

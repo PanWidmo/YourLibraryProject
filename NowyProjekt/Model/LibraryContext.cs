@@ -16,6 +16,7 @@ namespace NowyProjekt.Model
         {
             Database.EnsureCreated();
         }
+
         public DbSet<Member> Members { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Book> Books { get; set; }
@@ -26,7 +27,7 @@ namespace NowyProjekt.Model
             modelBuilder.Entity<Member>().HasData(GetMembers());
             modelBuilder.Entity<Book>().HasData(GetBooks());
             modelBuilder.Entity<BookDetail>().HasData(GetBooksDetails());
-            modelBuilder.Entity<Order>();
+            modelBuilder.Entity<Order>().HasData(GetOrders());
             base.OnModelCreating(modelBuilder);
         }
 
@@ -34,9 +35,9 @@ namespace NowyProjekt.Model
         {
             return new Member[]
             {
-                new Member{MemberId=1, FirstName="John"},
-                new Member{MemberId=2, FirstName="Paul"},
-                new Member{MemberId=3, FirstName="Mario"},
+                new Member{Id=1, FirstName="John"},
+                new Member{Id=2, FirstName="Paul"},
+                new Member{Id=3, FirstName="Mario"},
             };
         }
 
@@ -44,8 +45,8 @@ namespace NowyProjekt.Model
         {
             return new Book[]
             {
-                new Book{BookId=1,Title="Sztuka Wojny"},
-                new Book{BookId=2,Title="Rok 1984"},
+                new Book{Id=1,Title="Sztuka Wojny"},
+                new Book{Id=2,Title="Rok 1984"},
             };
         }
 
@@ -53,12 +54,19 @@ namespace NowyProjekt.Model
         {
             return new BookDetail[]
             {
-                new BookDetail{BookId=1, Author="Sun Tzu"},
-                new BookDetail{BookId=2,Author="George Orwell"},
+                new BookDetail{Id=1, Author="Sun Tzu", BookId=1},
+                new BookDetail{Id=2,Author="George Orwell", BookId=2},
             };
         }
-
-        //Add orders to DB 
+        
+        private Order[] GetOrders()
+        {
+            return new Order[]
+            {
+                new Order{Id=1,MemberId=1,BookId=1},
+                new Order{Id=2,MemberId=1,BookId=1},
+            };
+        }
 
     }
 }

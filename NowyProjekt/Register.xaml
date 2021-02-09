@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
-        Title="Register" Height="719" Width="800">
+        Title="Register" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Text="Register" FontSize="38
                    " TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="58" Width="176"/>
@@ -24,8 +24,7 @@
         <TextBox x:Name="confirmPassword" HorizontalAlignment="Center" Margin="0,317,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
 
 
-        <Button x:Name="register" Content="Register" FontSize="24" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="register_Click"/>
-        <DataGrid x:Name="memberInfo" AutoGenerateColumns="False" EnableRowVirtualization="true" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0,440,0,0"/>
+        
         
     </Grid>
 </Window>

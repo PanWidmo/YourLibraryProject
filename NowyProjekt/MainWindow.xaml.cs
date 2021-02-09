@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
+using NowyProjekt.Model;
 
 namespace NowyProjekt
 {
@@ -22,21 +23,20 @@ namespace NowyProjekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly LibraryContext libraryContext;
 
-
-        public MainWindow()
+        public MainWindow(LibraryContext libraryContext)
         {
-            
+            InitializeComponent();
+            this.libraryContext = libraryContext;
         }
 
 
         private void logInFirstScreen_Click(object sender, RoutedEventArgs e)
         {
-            
-
             Login loginWindow = new Login();
             loginWindow.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void registerFirstScreen_Click(object sender, RoutedEventArgs e)
