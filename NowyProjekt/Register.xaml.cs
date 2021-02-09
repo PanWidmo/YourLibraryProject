@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 namespace NowyProjekt
-{
+{/*
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>
@@ -48,14 +48,14 @@ namespace NowyProjekt
                         FirstName=firstName.Text,
                         LastName=lastName.Text,
                         Email=email.Text,
-                        Phone = Convert.ToInt32(phone.Text),
+                        Phone = phone.Text,
                         Password=password.Text
                     };
 
                     dbContext.Add(member);
                     dbContext.SaveChanges();
 
-                    if (member.ID > 0)
+                    if (member.MemberId > 0)
                     {
                         MessageBox.Show("Welcome aboard: "+member.FirstName + " " + member.LastName+"!");
                         
@@ -70,5 +70,5 @@ namespace NowyProjekt
 
             }
         }
-    }
+    }*/
 }

@@ -7,13 +7,9 @@ using System.Collections.ObjectModel;
 
 namespace NowyProjekt.Model
 {
-    public class Order
+    public class BookDetail
     {
-        public int OrderId {get;set;}
-        public int MemberId { get; set; }
         public int BookId { get; set; }
-
-        public virtual Member Member { get; set; }
-        public virtual Book Book { get; set; }
+        public string Author { get; set; }
     }
 }

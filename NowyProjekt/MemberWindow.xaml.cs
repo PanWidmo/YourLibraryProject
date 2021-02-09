@@ -21,11 +21,11 @@ namespace NowyProjekt
     /// </summary>
     public partial class MemberWindow : Window
     {
-        Model.LibraryContext = DbContext;
+        //Model.LibraryContext = DbContext;
 
-        public MemberWindow(Model.LibraryContext DbContext)
+        public MemberWindow()
         {
-            this.DbContext = DbContext;
+            //this.DbContext = DbContext;
 
             InitializeComponent();
             
