@@ -30,74 +30,33 @@ namespace NowyProjekt
             AddNewMemberGrid.DataContext = NewMember;
         }
 
-        
+    /// <summary>
+    /// Insert new member to database
+    /// </summary>
+    /// <param name="s"></param>
+    /// <param name="e"></param>
         private void AddNewMember(object s, RoutedEventArgs e)
         {
-            libraryContext.Add(NewMember);
-            libraryContext.SaveChanges();
-            NewMember = new Model.Member();
+            if (string.IsNullOrEmpty(firstNameTextBox.Text) ||
+                string.IsNullOrEmpty(lastNameTextBox.Text) ||
+                string.IsNullOrEmpty(emailTextBox.Text) ||
+                string.IsNullOrEmpty(phoneTextBox.Text) ||
+                string.IsNullOrEmpty(passwordTextBox.Text)
+                )
+            {
+                MessageBox.Show("Please enter text in to boxes");
+            }
+            else
+            {
+                libraryContext.Add(NewMember);
+                libraryContext.SaveChanges();
+                NewMember = new Model.Member();
+                MessageBox.Show("Welcome aboard: " + firstNameTextBox.Text + " " + lastNameTextBox.Text + "!");
+
+                MemberWindow memberWindow = new MemberWindow();
+                this.Close();
+                memberWindow.Show();
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// Insert new member to database
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void register_Click(object sender, RoutedEventArgs e) 
-        //{
-        //    if (string.IsNullOrEmpty(firstName.Text) || string.IsNullOrEmpty(lastName.Text) || string.IsNullOrEmpty(email.Text)
-        //        || string.IsNullOrEmpty(phone.Text) || string.IsNullOrEmpty(password.Text) || string.IsNullOrEmpty(confirmPassword.Text))
-        //    {
-        //        MessageBox.Show("Please enter text in box!");
-        //    }
-
-        //    else if(password.Text != confirmPassword.Text){
-        //        MessageBox.Show("Passwords do not match");
-        //    }
-        //    else
-        //    {
-        //        using (var dbContext = new Model.LibraryContext())
-        //        {
-        //            Model.Member member = new Model.Member()
-        //            {
-        //                FirstName=firstName.Text,
-        //                LastName=lastName.Text,
-        //                Email=email.Text,
-        //                Phone = phone.Text,
-        //                Password=password.Text
-        //            };
-
-        //            dbContext.Add(member);
-        //            dbContext.SaveChanges();
-
-        //            if (member.MemberId > 0)
-        //            {
-        //                MessageBox.Show("Welcome aboard: "+member.FirstName + " " + member.LastName+"!");
-
-
-        //            }
-
-        //            else MessageBox.Show("Error");
-
-
-
-        //        }
-
-        //    }
-        //}
     }
 }

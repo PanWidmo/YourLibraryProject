@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
         Title="Register" Height="450" Width="800">
-    <Grid x:Name="AddNewMemberGrid" >
+    <Grid x:Name="AddNewMemberGrid" Background="#2e3137">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" HorizontalAlignment="Center" Content="Register" FontSize="30"/>
+        <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Register" FontSize="30"/>
 
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
@@ -29,24 +29,24 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="First Name:"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:"/>
+            <TextBox x:Name="firstNameTextBox" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:"/>
+            <TextBox x:Name="lastNameTextBox" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Email:"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="2" Foreground="#fff" Grid.Column="0" Content="Email:"/>
+            <TextBox x:Name="emailTextBox" Background="#545d6a" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Phone:"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+            <Label Grid.Row="3" Foreground="#fff" Grid.Column="0" Content="Phone:"/>
+            <TextBox x:Name="phoneTextBox" Background="#545d6a" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Password:"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="4" Foreground="#fff" Grid.Column="0" Content="Password:"/>
+            <TextBox x:Name="passwordTextBox" Background="#545d6a" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button Content="Add" Click="AddNewMember" Margin="10" FontSize="40"/>
+            <Button Content="Submit" Background="#545d6a" Foreground="#fff" Click="AddNewMember" Margin="10" FontSize="40"/>
         </Grid>
 
     </Grid>

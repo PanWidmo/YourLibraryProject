@@ -35,9 +35,9 @@ namespace NowyProjekt
 
         private void logInFirstScreen_Click(object sender, RoutedEventArgs e)
         {
-            Login loginWindow = new Login();
+            Login loginWindow = new Login(libraryContext);
             loginWindow.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void registerFirstScreen_Click(object sender, RoutedEventArgs e)

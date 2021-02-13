@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
-    <Grid>
-        <Button x:Name="registerFirstScreen" Content="Register" HorizontalAlignment="Left" FontSize="30" Margin="94,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="registerFirstScreen_Click"/>
-        <Button x:Name="logInFirstScreen" Content="Log In" HorizontalAlignment="Left" FontSize="30" Margin="482,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="logInFirstScreen_Click"/>
-        <Label Content="Welcome to YourLibrary.com" FontSize="40"  HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="64" Width="520"/>
+
+    <Grid Background="#2e3137">
+        <Button Background="#545d6a" Foreground="#fff" x:Name="registerFirstScreen" Content="Register" HorizontalAlignment="Left" FontSize="30" Margin="94,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="registerFirstScreen_Click"/>
+        <Button Background="#545d6a" Foreground="#fff" x:Name="logInFirstScreen" Content="Log In" HorizontalAlignment="Left" FontSize="30" Margin="482,0,0,0" VerticalAlignment="Center" Height="84" Width="206" Click="logInFirstScreen_Click"/>
+        <Label Foreground="#fff" Content="Welcome to YourLibrary.com" FontSize="40"  HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="64" Width="520"/>
 
     </Grid>
 </Window>

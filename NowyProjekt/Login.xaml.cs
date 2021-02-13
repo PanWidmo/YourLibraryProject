@@ -17,9 +17,22 @@ namespace NowyProjekt
     /// </summary>
     public partial class Login : Window
     {
-        public Login()
+        Model.LibraryContext libraryContext;
+
+        public Login(Model.LibraryContext libraryContext)
         {
+            this.libraryContext = libraryContext;
             InitializeComponent();
         }
+
+        Model.Member selectedMember = new Model.Member();
+        private void logIn(object s, RoutedEventArgs e)
+        {
+            selectedMember = (s as FrameworkElement).DataContext as Model.Member;
+
+            
+        }
+
+        
     }
 }
