@@ -27,8 +27,9 @@ namespace NowyProjekt
 
         public MainWindow(LibraryContext libraryContext)
         {
-            InitializeComponent();
             this.libraryContext = libraryContext;
+            InitializeComponent();
+
         }
 
 
@@ -41,7 +42,7 @@ namespace NowyProjekt
 
         private void registerFirstScreen_Click(object sender, RoutedEventArgs e)
         {
-            Register registerWindow = new Register();
+            Register registerWindow = new Register(libraryContext);
             registerWindow.Show();
             this.Close();
         }

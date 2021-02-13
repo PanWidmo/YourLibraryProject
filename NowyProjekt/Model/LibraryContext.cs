@@ -35,9 +35,9 @@ namespace NowyProjekt.Model
         {
             return new Member[]
             {
-                new Member{Id=1, FirstName="John"},
-                new Member{Id=2, FirstName="Paul"},
-                new Member{Id=3, FirstName="Mario"},
+                new Member{Id=1, FirstName="John", LastName="Smith",Email="jsmith@project.com", Phone="123123123", Password="smith123"},
+                new Member{Id=2, FirstName="Paul", LastName="Orange",Email="porange@project.com", Phone="321321321", Password="orange123" },
+                new Member{Id=3, FirstName="Mario", LastName="Busc",Email="mbusc@project.com", Phone="123321123", Password="busc123"},
             };
         }
 

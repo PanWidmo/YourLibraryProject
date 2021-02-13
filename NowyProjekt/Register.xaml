@@ -6,25 +6,48 @@
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
         Title="Register" Height="450" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" Text="Register" FontSize="38
-                   " TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="58" Width="176"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,73,0,0" Text="First name:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="106"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,134,0,0" Text="Last Name:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,177,0,0" Text="Email:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,229,0,0" Text="Phone:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,276,0,0" Text="Password:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,319,0,0" Text="Confirm Password:" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    <Grid x:Name="AddNewMemberGrid" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <TextBox x:Name="firstName" HorizontalAlignment="Center" Margin="0,74,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="30"/>
-        <TextBox x:Name="lastName" HorizontalAlignment="Center" Margin="0,127,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <TextBox x:Name="email" HorizontalAlignment="Center" Margin="0,175,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <TextBox x:Name="phone" HorizontalAlignment="Center" Margin="0,227,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <TextBox x:Name="password" HorizontalAlignment="Center" Margin="0,274,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <TextBox x:Name="confirmPassword" HorizontalAlignment="Center" Margin="0,317,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <Label Grid.Row="0" HorizontalAlignment="Center" Content="Register" FontSize="30"/>
 
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        
-        
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="First Name:"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Email:"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Phone:"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Password:"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button Content="Add" Click="AddNewMember" Margin="10" FontSize="40"/>
+        </Grid>
+
     </Grid>
 </Window>
