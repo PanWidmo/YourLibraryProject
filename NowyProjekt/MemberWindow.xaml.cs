@@ -21,15 +21,18 @@ namespace NowyProjekt
     /// </summary>
     public partial class MemberWindow : Window
     {
-        
+        Model.LibraryContext libraryContext;
 
-        public MemberWindow()
+        public MemberWindow(Model.LibraryContext libraryContext)
         {
-
+            this.libraryContext = libraryContext;
             InitializeComponent();
+
             
                 
         }
+
+
 
     }
 }

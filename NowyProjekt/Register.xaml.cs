@@ -53,9 +53,9 @@ namespace NowyProjekt
                 NewMember = new Model.Member();
                 MessageBox.Show("Welcome aboard: " + firstNameTextBox.Text + " " + lastNameTextBox.Text + "!");
 
-                MemberWindow memberWindow = new MemberWindow();
+                Login login = new Login(libraryContext);
                 this.Close();
-                memberWindow.Show();
+                login.Show();
             }
         }
     }

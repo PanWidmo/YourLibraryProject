@@ -9,10 +9,12 @@
     <Grid Background="#2e3137">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition/>
+            <RowDefinition MaxHeight="100"/>
+            <RowDefinition MaxHeight="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Login" FontSize="30"/>
+        <Button Content="Back to: Register" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
@@ -25,17 +27,34 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="Email:"/>
-            <TextBox x:Name="emailTextBox" Height="20" VerticalAlignment="Top" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="0" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Email:"/>
+            <TextBox x:Name="emailTextBox" Height="20"  Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Password:"/>
-            <TextBox x:Name="passwordTextBox" Height="20" VerticalAlignment="Top" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="1" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Password:"/>
+            <TextBox x:Name="passwordTextBox" Height="20"  Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
 
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button Content="Log in" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="40"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        
+            <Button Content="Log in" MaxWidth="200"  Grid.Column="0" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
+            <Button x:Name="logOut" Content="Log out" MaxWidth="200"  Grid.Column="1" IsEnabled="False" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
         </Grid>
+
+        <DataGrid Grid.Row="3"  AutoGenerateColumns="False" Name="MemberInfo" IsReadOnly="True" Visibility="visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
 
     </Grid>
 </Window>
