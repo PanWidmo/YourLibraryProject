@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,12 +26,25 @@ namespace NowyProjekt
             InitializeComponent();
         }
 
-        Model.Member selectedMember = new Model.Member();
+        
+
         private void logIn(object s, RoutedEventArgs e)
         {
-            selectedMember = (s as FrameworkElement).DataContext as Model.Member;
+            var member = libraryContext.Members.FirstOrDefault(b => b.Email == emailTextBox.Text);
 
-            
+            if (member != null)
+            {
+                if (member.Password == passwordTextBox.Text)
+                {
+                    MessageBox.Show("Login successfully!");
+                    MemberWindow memberWindow = new MemberWindow();
+                    this.Close();
+                    memberWindow.Show();
+                }
+                else MessageBox.Show("Wrong password");
+            }
+            else MessageBox.Show("User doesnt exist");
+
         }
 
         
