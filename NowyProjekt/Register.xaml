@@ -29,24 +29,24 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:"/>
-            <TextBox x:Name="firstNameTextBox" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:" FontSize="16"/>
+            <TextBox x:Name="firstNameTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
 
-            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:"/>
-            <TextBox x:Name="lastNameTextBox" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:" FontSize="16"/>
+            <TextBox x:Name="lastNameTextBox" Foreground="#fff" Background="#545d6a" Grid.Row="1" FontSize="16" Grid.Column="1" Text="{Binding LastName}"/>
 
-            <Label Grid.Row="2" Foreground="#fff" Grid.Column="0" Content="Email:"/>
-            <TextBox x:Name="emailTextBox" Background="#545d6a" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="2" Foreground="#fff" Grid.Column="0" Content="Email:" FontSize="16"/>
+            <TextBox x:Name="emailTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="3" Foreground="#fff" Grid.Column="0" Content="Phone:"/>
-            <TextBox x:Name="phoneTextBox" Background="#545d6a" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+            <Label Grid.Row="3" Foreground="#fff" Grid.Column="0" Content="Phone:" FontSize="16"/>
+            <TextBox x:Name="phoneTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
 
-            <Label Grid.Row="4" Foreground="#fff" Grid.Column="0" Content="Password:"/>
-            <TextBox x:Name="passwordTextBox" Background="#545d6a" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="4" Foreground="#fff" Grid.Column="0" Content="Password:" FontSize="16"/>
+            <TextBox x:Name="passwordTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button Content="Submit" Background="#545d6a" Foreground="#fff" Click="AddNewMember" Margin="10" FontSize="40"/>
+            <Button Content="Submit" MaxHeight="80" MaxWidth="260" Background="#545d6a" Foreground="#fff" Click="AddNewMember" Margin="10" FontSize="40"/>
         </Grid>
 
     </Grid>

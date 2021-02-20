@@ -28,10 +28,10 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Email:"/>
-            <TextBox x:Name="emailTextBox" Height="20"  Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
+            <TextBox x:Name="emailTextBox" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
 
             <Label Grid.Row="1" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Password:"/>
-            <TextBox x:Name="passwordTextBox" Height="20"  Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
+            <TextBox x:Name="passwordTextBox" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
 
         </Grid>
 
@@ -44,7 +44,7 @@
             <Button x:Name="logInButton" Content="Log in" MaxWidth="140"  Grid.Column="0" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
             <Button x:Name="logOutButton" Content="Log out" Click="LogOut" MaxWidth="140"  Grid.Column="1" IsEnabled="False" Foreground="#fff" Background="#545d6a" Margin="10" FontSize="26"/>
         </Grid>
-        <Grid Grid.Row="3" x:Name="memberData" Visibility="Hidden">
+        <Grid Grid.Row="3" x:Name="memberData" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -58,25 +58,25 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
 
-            <Label Grid.Row="0" Grid.Column="0" Content="First Name:" Foreground="#fff"/>
-            <TextBox x:Name="firstNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:" Foreground="#fff"/>
-            <TextBox x:Name="lastNameBox" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="20" Content="First Name:" Foreground="#fff"/>
+            <TextBox x:Name="firstNameBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Email:" Foreground="#fff"/>
-            <TextBox x:Name="emailBox" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="lastNameBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Phone:" Foreground="#fff"/>
-            <TextBox x:Name="phoneBox" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Email:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="emailBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Password:" Foreground="#fff"/>
-            <TextBox x:Name="passwordBox" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Phone:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="phoneBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
 
-            <Button x:Name="updateData" Click="Update" MaxWidth="90" Content="Update" Grid.Column="3" Grid.Row="1"/>
-            <Button x:Name="deleteData" MaxWidth="90" Content="Delete" Grid.Column="3" Grid.Row="3"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Password:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="passwordBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+
+            <Button x:Name="updateData" Click="Update" MaxWidth="160" FontSize="20" Foreground="#fff" Background="#545d6a" Content="Update" Grid.Column="3" Grid.Row="1"/>
+            <Button x:Name="deleteData" Click="Delete" MaxWidth="160" FontSize="20" Foreground="#fff" Background="#545d6a" Content="Delete Account" Grid.Column="3" Grid.Row="3"/>
         </Grid>
 
 

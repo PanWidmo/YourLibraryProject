@@ -77,5 +77,18 @@ namespace NowyProjekt
             MessageBox.Show("Changes have been saved successfully!");
         }
 
+        private void Delete(object s, RoutedEventArgs e)
+        {
+            var member = libraryContext.Members.FirstOrDefault(b => b.Email == emailTextBox.Text);
+            libraryContext.Remove(member);
+            libraryContext.SaveChanges();
+            MessageBox.Show("Account deleted successfully");
+
+            MainWindow main = new MainWindow(libraryContext);
+            this.Close();
+            main.Show();
+        }
+
+
     }
 }
