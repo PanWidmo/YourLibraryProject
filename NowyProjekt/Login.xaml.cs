@@ -27,6 +27,18 @@ namespace NowyProjekt
             InitializeComponent();
         }
 
+        private void backToRegisterButton(object s, RoutedEventArgs e)
+        {
+            Register register = new Register(libraryContext);
+            this.Close();
+            register.Show();
+        }
+
+        private void LogOut(object s, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void logIn(object s, RoutedEventArgs e)
         {
             var member = libraryContext.Members.FirstOrDefault(b => b.Email == emailTextBox.Text);
@@ -36,13 +48,19 @@ namespace NowyProjekt
                 if (member.Password == passwordTextBox.Text)
                 {
                     MessageBox.Show("Login successfully!");
-                    MemberInfo.Visibility = Visibility.Visible;
-                    logOut.IsEnabled = true;
+                    memberData.Visibility = Visibility.Visible;
+                    logOutButton.IsEnabled = true;
+                    logInButton.IsEnabled = false;
                     var c = libraryContext.Members.Where(a => a.Email == emailTextBox.Text).ToList();
-                    MemberInfo.ItemsSource = c;
+                    
+                    firstNameBox.DataContext = c;
+                    lastNameBox.DataContext = c;
+                    emailBox.DataContext = c;
+                    phoneBox.DataContext = c;
+                    passwordBox.DataContext = c;
 
                     
-
+                    
 
                 }
                 else MessageBox.Show("Wrong password");
@@ -51,6 +69,13 @@ namespace NowyProjekt
 
         }
 
-        
+        private void Update(object s, RoutedEventArgs e)
+        {
+            var member = libraryContext.Members.FirstOrDefault(b => b.Email == emailTextBox.Text);
+            libraryContext.Update(member);
+            libraryContext.SaveChanges();
+            MessageBox.Show("Changes have been saved successfully!");
+        }
+
     }
 }

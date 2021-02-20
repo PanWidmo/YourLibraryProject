@@ -14,7 +14,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Login" FontSize="30"/>
-        <Button Content="Back to: Register" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="To Register" FontSize="20"  Click="backToRegisterButton" Foreground="#fff" Background="#545d6a" Width="160" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
@@ -40,21 +40,45 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-        
-            <Button Content="Log in" MaxWidth="200"  Grid.Column="0" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
-            <Button x:Name="logOut" Content="Log out" MaxWidth="200"  Grid.Column="1" IsEnabled="False" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
+
+            <Button x:Name="logInButton" Content="Log in" MaxWidth="140"  Grid.Column="0" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
+            <Button x:Name="logOutButton" Content="Log out" Click="LogOut" MaxWidth="140"  Grid.Column="1" IsEnabled="False" Foreground="#fff" Background="#545d6a" Margin="10" FontSize="26"/>
+        </Grid>
+        <Grid Grid.Row="3" x:Name="memberData" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+
+            <Label Grid.Row="0" Grid.Column="0" Content="First Name:" Foreground="#fff"/>
+            <TextBox x:Name="firstNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:" Foreground="#fff"/>
+            <TextBox x:Name="lastNameBox" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Email:" Foreground="#fff"/>
+            <TextBox x:Name="emailBox" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Phone:" Foreground="#fff"/>
+            <TextBox x:Name="phoneBox" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Password:" Foreground="#fff"/>
+            <TextBox x:Name="passwordBox" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+
+            <Button x:Name="updateData" Click="Update" MaxWidth="90" Content="Update" Grid.Column="3" Grid.Row="1"/>
+            <Button x:Name="deleteData" MaxWidth="90" Content="Delete" Grid.Column="3" Grid.Row="3"/>
         </Grid>
 
-        <DataGrid Grid.Row="3"  AutoGenerateColumns="False" Name="MemberInfo" IsReadOnly="True" Visibility="visible">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
-            </DataGrid.Columns>
-            
-        </DataGrid>
 
     </Grid>
 </Window>
