@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 namespace NowyProjekt
 {
+
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
