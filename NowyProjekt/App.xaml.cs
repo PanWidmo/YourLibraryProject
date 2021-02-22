@@ -14,7 +14,7 @@ namespace NowyProjekt
 {
     /// <summary>
     /// Interaction logic for App.xaml
-    /// </summary>
+    /// </summary> 
     public partial class App : Application
     {
         private ServiceProvider serviceProvider;
