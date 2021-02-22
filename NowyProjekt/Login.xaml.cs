@@ -49,19 +49,26 @@ namespace NowyProjekt
                 if (member.Password == passwordTextBox.Text)
                 {
                     MessageBox.Show("Login successfully!");
+
                     memberData.Visibility = Visibility.Visible;
+
                     logOutButton.IsEnabled = true;
                     logInButton.IsEnabled = false;
-                    var c = libraryContext.Members.Where(a => a.Email == emailTextBox.Text).ToList();
-                    
-                    firstNameBox.DataContext = c;
-                    lastNameBox.DataContext = c;
-                    emailBox.DataContext = c;
-                    phoneBox.DataContext = c;
-                    passwordBox.DataContext = c;
 
+                    var currentMember = libraryContext.Members.Where(a => a.Email == emailTextBox.Text).ToList();
                     
-                    
+                    firstNameBox.DataContext = currentMember;
+                    lastNameBox.DataContext = currentMember;
+                    emailBox.DataContext = currentMember;
+                    phoneBox.DataContext = currentMember;
+                    passwordBox.DataContext = currentMember;
+
+                    //Wypisanie z bazy do comboboxa
+                    //var memberBooks = libraryContext.Books.Where(b => b. == memberBooks).ToList();
+
+                    //Wpisanie do bazy z comboboxa
+                    //var borrowBook= 
+
 
                 }
                 else MessageBox.Show("Wrong password");
