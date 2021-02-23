@@ -30,7 +30,7 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:" FontSize="16"/>
-            <TextBox x:Name="firstNameTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+            <TextBox x:Name="firstNameTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" AutomationProperties.HelpText="Enter your Name here"/>
 
             <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:" FontSize="16"/>
             <TextBox x:Name="lastNameTextBox" Foreground="#fff" Background="#545d6a" Grid.Row="1" FontSize="16" Grid.Column="1" Text="{Binding LastName}"/>

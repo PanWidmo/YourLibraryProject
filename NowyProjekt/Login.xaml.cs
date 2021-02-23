@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NowyProjekt.Model;
 
 namespace NowyProjekt
 {
@@ -20,9 +21,9 @@ namespace NowyProjekt
     /// </summary>
     public partial class Login : Window
     {
-        Model.LibraryContext libraryContext;
+        LibraryContext libraryContext;
 
-        public Login(Model.LibraryContext libraryContext)
+        public Login(LibraryContext libraryContext)
         {
             this.libraryContext = libraryContext;
             InitializeComponent();
@@ -63,12 +64,20 @@ namespace NowyProjekt
                     phoneBox.DataContext = currentMember;
                     passwordBox.DataContext = currentMember;
 
+                    //libraryContext.Orders.Add() ;
+
                     //Wypisanie z bazy do comboboxa
-                    //var memberBooks = libraryContext.Books.Where(b => b. == memberBooks).ToList();
+                    var memberBooks = libraryContext.Books.Where(a => a.Title == emailTextBox.Text).ToList();
+                    //var w = libraryContext.Books.Union(libraryContext.Orders).;
+                    //var v = "select Books.Title FROM Books INNER JOIN (Members INNER JOIN Orders ON Members.Id = Orders.MemberId) ON Books.Id = Orders.BookId".ToList();
+                    //select Books.Title FROM Books INNER JOIN (Members INNER JOIN Orders ON Members.Id = Orders.MemberId) ON Books.Id = Orders.BookId WHERE Members.Id=2
+
+                    //borrowCombobox.ItemsSource = v;
+
+
 
                     //Wpisanie do bazy z comboboxa
                     //var borrowBook= 
-
 
                 }
                 else MessageBox.Show("Wrong password");

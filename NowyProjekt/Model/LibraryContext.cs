@@ -47,6 +47,10 @@ namespace NowyProjekt.Model
             {
                 new Book{Id=1,Title="Sztuka Wojny"},
                 new Book{Id=2,Title="Rok 1984"},
+                new Book{Id=3,Title="Kod Da Vinci"},
+                new Book{Id=4,Title="Quo Vadis"},
+                new Book{Id=5,Title="Pan Tadeusz"}
+                
             };
         }
 
@@ -56,6 +60,9 @@ namespace NowyProjekt.Model
             {
                 new BookDetail{Id=1, Author="Sun Tzu", BookId=1},
                 new BookDetail{Id=2,Author="George Orwell", BookId=2},
+                new BookDetail{Id=3,Author="Dany Brown", BookId=3},
+                new BookDetail{Id=4, Author="Henryk Sienkiewicz", BookId=4},
+                new BookDetail{Id=5,Author="Pan Tadeusz",BookId=5}
             };
         }
         
@@ -64,7 +71,11 @@ namespace NowyProjekt.Model
             return new Order[]
             {
                 new Order{Id=1,MemberId=1,BookId=1},
-                new Order{Id=2,MemberId=1,BookId=1},
+                new Order{Id=2,MemberId=1,BookId=2},
+                new Order{Id=3, MemberId=1,BookId=3 },
+                new Order{Id=4,MemberId=2,BookId=4},
+                new Order{Id=5,MemberId=3,BookId=5}
+
             };
         }
 
