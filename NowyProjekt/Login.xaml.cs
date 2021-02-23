@@ -24,14 +24,12 @@ namespace NowyProjekt
         LibraryContext libraryContext;
 
         Order NewOrder = new Order();
+        private int ID { get; set; }
 
         public Login(LibraryContext libraryContext)
         {
             this.libraryContext = libraryContext;
             InitializeComponent();
-            
-
-
         }
 
         private void backToRegisterButton(object s, RoutedEventArgs e)
@@ -68,11 +66,14 @@ namespace NowyProjekt
                     emailBox.DataContext = currentMember;
                     phoneBox.DataContext = currentMember;
                     passwordBox.DataContext = currentMember;
+                    ID = member.Id;
 
                     //wypisanie z bazy ksiazek do wypozyczenia
-                    var booksInStore = (from Book in libraryContext.Books
-                             select Book.Title
-                             ).ToList();
+                    //var booksInStore = (from Book in libraryContext.Books
+                    //         select Book.Title
+                    //         ).ToList();
+
+                    var booksInStore = libraryContext.Books.Select(x => new { x.Id, x.Title }).ToList();
                     borrowCombobox.ItemsSource = booksInStore;
 
                     //do comboboxa wypozyczone ksiazki
@@ -113,9 +114,19 @@ namespace NowyProjekt
 
         private void borrowButton_Click(object sender, RoutedEventArgs e)
         {
-            libraryContext.Add(NewOrder);
+            char[] znak = { '{', 'I', 'd', '=', ' ' };
+            string item = borrowCombobox.SelectedItem.ToString();
+
+            string id = item.Split(',')[0];
+            int Id = Int32.Parse(id.Trim(znak));
+
+            NewOrder.BookId = Id;
+            NewOrder.MemberId = ID;
+
+            libraryContext.Orders.Add(NewOrder);
             libraryContext.SaveChanges();
-            NewOrder = new Order();
+            borrowCombobox.DataContext = new Order();
+            libraryContext.ChangeTracker.Clear();
 
         }
 
