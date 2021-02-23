@@ -23,10 +23,15 @@ namespace NowyProjekt
     {
         LibraryContext libraryContext;
 
+        Order NewOrder = new Order();
+
         public Login(LibraryContext libraryContext)
         {
             this.libraryContext = libraryContext;
             InitializeComponent();
+
+            borrowCombobox.DataContext = NewOrder;
+
         }
 
         private void backToRegisterButton(object s, RoutedEventArgs e)
@@ -64,16 +69,12 @@ namespace NowyProjekt
                     phoneBox.DataContext = currentMember;
                     passwordBox.DataContext = currentMember;
 
-                    //libraryContext.Orders.Add() ;
+                    //wypisanie z bazy ksiazek do wypozyczenia
+                    var v = (from Book in libraryContext.Books
+                             select Book.Title).ToList();
+                    borrowCombobox.ItemsSource = v;
 
-                    //Wypisanie z bazy do comboboxa
-                    var memberBooks = libraryContext.Books.Where(a => a.Title == emailTextBox.Text).ToList();
-                    //var w = libraryContext.Books.Union(libraryContext.Orders).;
-                    //var v = "select Books.Title FROM Books INNER JOIN (Members INNER JOIN Orders ON Members.Id = Orders.MemberId) ON Books.Id = Orders.BookId".ToList();
-                    //select Books.Title FROM Books INNER JOIN (Members INNER JOIN Orders ON Members.Id = Orders.MemberId) ON Books.Id = Orders.BookId WHERE Members.Id=2
-
-                    //borrowCombobox.ItemsSource = v;
-
+                    //
 
 
                     //Wpisanie do bazy z comboboxa
@@ -106,6 +107,11 @@ namespace NowyProjekt
             main.Show();
         }
 
+        private void borrowButton_Click(object sender, RoutedEventArgs e)
+        {
+            libraryContext.Add(NewOrder);
+            libraryContext.SaveChanges();
 
+        }
     }
 }
