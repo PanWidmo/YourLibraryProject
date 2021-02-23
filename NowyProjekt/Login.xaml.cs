@@ -29,8 +29,8 @@ namespace NowyProjekt
         {
             this.libraryContext = libraryContext;
             InitializeComponent();
+            
 
-            borrowCombobox.DataContext = NewOrder;
 
         }
 
@@ -70,15 +70,19 @@ namespace NowyProjekt
                     passwordBox.DataContext = currentMember;
 
                     //wypisanie z bazy ksiazek do wypozyczenia
-                    var v = (from Book in libraryContext.Books
-                             select Book.Title).ToList();
-                    borrowCombobox.ItemsSource = v;
+                    var booksInStore = (from Book in libraryContext.Books
+                             select Book.Title
+                             ).ToList();
+                    borrowCombobox.ItemsSource = booksInStore;
 
-                    //
+                    //do comboboxa wypozyczone ksiazki
+                    var memberBorrowedBooks = (from b in libraryContext.Books
+                             join o in libraryContext.Orders on b.Id equals o.BookId
+                             join m in libraryContext.Members on o.MemberId equals m.Id where m.Email == emailTextBox.Text
+                             select b.Title
+                             ).ToList(); 
+                    returnCombobox.ItemsSource = memberBorrowedBooks;
 
-
-                    //Wpisanie do bazy z comboboxa
-                    //var borrowBook= 
 
                 }
                 else MessageBox.Show("Wrong password");
@@ -111,7 +115,13 @@ namespace NowyProjekt
         {
             libraryContext.Add(NewOrder);
             libraryContext.SaveChanges();
+            NewOrder = new Order();
 
+        }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            //delete from DB order
         }
     }
 }
