@@ -53,6 +53,7 @@ namespace NowyProjekt
             {
                 if (member.Password == passwordTextBox.Text)
                 {
+
                     //opens special admin window that allows to add new book to lib (email: admin@admin.admin pass: admin)
                     if (member.Email == "admin@admin.admin")
                     {
@@ -130,36 +131,77 @@ namespace NowyProjekt
 
         private void borrowButton_Click(object sender, RoutedEventArgs e)
         {
-            char[] znak = { '{', 'I', 'd', '=', ' ' };
-            string item = borrowCombobox.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(borrowCombobox.Text))
+            {
+                MessageBox.Show("Select data!");
+            }
+            else
+            {
+                char[] znak = { '{', 'I', 'd', '=', ' ' };
+                string item = borrowCombobox.SelectedItem.ToString();
+                string id = item.Split(',')[0];
+                int Id = Int32.Parse(id.Trim(znak));
 
-            string id = item.Split(',')[0];
-            int Id = Int32.Parse(id.Trim(znak));
+                NewOrder.BookId = Id;
+                NewOrder.MemberId = ID;
 
-            NewOrder.BookId = Id;
-            NewOrder.MemberId = ID;
+                libraryContext.Orders.Add(NewOrder);
+                libraryContext.SaveChanges();
+                borrowCombobox.DataContext = new Order();
+                libraryContext.ChangeTracker.Clear();
 
-            libraryContext.Orders.Add(NewOrder);
-            libraryContext.SaveChanges();
-            borrowCombobox.DataContext = new Order();
-            libraryContext.ChangeTracker.Clear();
+                var memberBorrowedBooks = (from b in libraryContext.Books
+                                           join o in libraryContext.Orders on b.Id equals o.BookId
+                                           join m in libraryContext.Members on o.MemberId equals m.Id
+                                           where m.Email == emailTextBox.Text
+                                           select new
+                                           {
+                                               b.Id,
+                                               b.Title
+                                           }
+                                 ).ToList();
+                returnCombobox.ItemsSource = memberBorrowedBooks;
+                MessageBox.Show("Successfully borrowed book from Library!");
+            }
 
         }
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            char[] znak = { '{', 'I', 'd', '=', ' ' };
-            string item = returnCombobox.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(returnCombobox.Text))
+            {
+                MessageBox.Show("Select data!");
+            }
+            else
+            {
 
-            string id = item.Split(',')[0];
-            int Id = Int32.Parse(id.Trim(znak));
+                char[] znak = { '{', 'I', 'd', '=', ' ' };
+                string item = returnCombobox.SelectedItem.ToString();
 
-            NewOrder.MemberId = ID;
-            NewOrder.BookId = Id;
+                string id = item.Split(',')[0];
+                int Id = Int32.Parse(id.Trim(znak));
 
-            libraryContext.Orders.Remove(NewOrder);
-            libraryContext.SaveChanges();
-            borrowCombobox.DataContext = new Order();
+                NewOrder.MemberId = ID;
+                NewOrder.BookId = Id;
+
+                libraryContext.Orders.Remove(NewOrder);
+                libraryContext.SaveChanges();
+                borrowCombobox.DataContext = new Order();
+                libraryContext.ChangeTracker.Clear();
+
+                var memberBorrowedBooks = (from b in libraryContext.Books
+                                           join o in libraryContext.Orders on b.Id equals o.BookId
+                                           join m in libraryContext.Members on o.MemberId equals m.Id
+                                           where m.Email == emailTextBox.Text
+                                           select new
+                                           {
+                                               b.Id,
+                                               b.Title
+                                           }
+                                 ).ToList();
+                returnCombobox.ItemsSource = memberBorrowedBooks;
+                MessageBox.Show("Successfully returned book to Library!");
+            }
         }
     }
 }
