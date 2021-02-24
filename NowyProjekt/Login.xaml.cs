@@ -53,41 +53,52 @@ namespace NowyProjekt
             {
                 if (member.Password == passwordTextBox.Text)
                 {
-                    MessageBox.Show("Login successfully!");
+                    //opens special admin window that allows to add new book to lib (email: admin@admin.admin pass: admin)
+                    if (member.Email == "admin@admin.admin")
+                    {
+                        NewBook newbook = new NewBook(libraryContext);
+                        this.Close();
+                        newbook.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login successfully!");
 
-                    memberData.Visibility = Visibility.Visible;
+                        memberData.Visibility = Visibility.Visible;
 
-                    logOutButton.IsEnabled = true;
-                    logInButton.IsEnabled = false;
+                        logOutButton.IsEnabled = true;
+                        logInButton.IsEnabled = false;
 
-                    var currentMember = libraryContext.Members.Where(a => a.Email == emailTextBox.Text).ToList();
-                    
-                    firstNameBox.DataContext = currentMember;
-                    lastNameBox.DataContext = currentMember;
-                    emailBox.DataContext = currentMember;
-                    phoneBox.DataContext = currentMember;
-                    passwordBox.DataContext = currentMember;
-                    ID = member.Id;
+                        var currentMember = libraryContext.Members.Where(a => a.Email == emailTextBox.Text).ToList();
 
-                    //wypisanie z bazy ksiazek do wypozyczenia
-                    //var booksInStore = (from Book in libraryContext.Books
-                    //         select Book.Title
-                    //         ).ToList();
+                        firstNameBox.DataContext = currentMember;
+                        lastNameBox.DataContext = currentMember;
+                        emailBox.DataContext = currentMember;
+                        phoneBox.DataContext = currentMember;
+                        passwordBox.DataContext = currentMember;
+                        ID = member.Id;
 
-                    var booksInStore = libraryContext.Books.Select(x => new { x.Id, x.Title }).ToList();
-                    borrowCombobox.ItemsSource = booksInStore;
+                        //wypisanie z bazy ksiazek do wypozyczenia
+                        //var booksInStore = (from Book in libraryContext.Books
+                        //         select Book.Title
+                        //         ).ToList();
 
-                    //do comboboxa wypozyczone ksiazki
-                    var memberBorrowedBooks = (from b in libraryContext.Books
-                             join o in libraryContext.Orders on b.Id equals o.BookId
-                             join m in libraryContext.Members on o.MemberId equals m.Id where m.Email == emailTextBox.Text
-                             select new
-                             {
-                                 b.Id,
-                                 b.Title
-                             }
-                             ).ToList(); 
-                    returnCombobox.ItemsSource = memberBorrowedBooks;
+                        var booksInStore = libraryContext.Books.Select(x => new { x.Id, x.Title }).ToList();
+                        borrowCombobox.ItemsSource = booksInStore;
+
+                        //do comboboxa wypozyczone ksiazki
+                        var memberBorrowedBooks = (from b in libraryContext.Books
+                                                   join o in libraryContext.Orders on b.Id equals o.BookId
+                                                   join m in libraryContext.Members on o.MemberId equals m.Id
+                                                   where m.Email == emailTextBox.Text
+                                                   select new
+                                                   {
+                                                       b.Id,
+                                                       b.Title
+                                                   }
+                                 ).ToList();
+                        returnCombobox.ItemsSource = memberBorrowedBooks;
+                    }
 
 
                 }
