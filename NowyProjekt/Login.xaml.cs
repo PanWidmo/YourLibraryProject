@@ -24,6 +24,7 @@ namespace NowyProjekt
         LibraryContext libraryContext;
 
         Order NewOrder = new Order();
+
         private int ID { get; set; }
 
         public Login(LibraryContext libraryContext)
@@ -80,7 +81,11 @@ namespace NowyProjekt
                     var memberBorrowedBooks = (from b in libraryContext.Books
                              join o in libraryContext.Orders on b.Id equals o.BookId
                              join m in libraryContext.Members on o.MemberId equals m.Id where m.Email == emailTextBox.Text
-                             select b.Title
+                             select new
+                             {
+                                 b.Id,
+                                 b.Title
+                             }
                              ).ToList(); 
                     returnCombobox.ItemsSource = memberBorrowedBooks;
 
@@ -132,7 +137,18 @@ namespace NowyProjekt
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            //delete from DB order
+            char[] znak = { '{', 'I', 'd', '=', ' ' };
+            string item = returnCombobox.SelectedItem.ToString();
+
+            string id = item.Split(',')[0];
+            int Id = Int32.Parse(id.Trim(znak));
+
+            NewOrder.MemberId = ID;
+            NewOrder.BookId = Id;
+
+            libraryContext.Orders.Remove(NewOrder);
+            libraryContext.SaveChanges();
+            borrowCombobox.DataContext = new Order();
         }
     }
 }
