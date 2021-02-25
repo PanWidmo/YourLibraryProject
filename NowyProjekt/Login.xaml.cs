@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using NowyProjekt.Model;
 
 namespace NowyProjekt
@@ -40,6 +30,11 @@ namespace NowyProjekt
             register.Show();
         }
 
+        private void exitButton(object s, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void LogOut(object s, RoutedEventArgs e)
         {
             this.Close();
@@ -54,13 +49,13 @@ namespace NowyProjekt
                 if (member.Password == passwordTextBox.Text)
                 {
 
-                    //opens special admin window that allows to add new book to lib (email: admin@admin.admin pass: admin)
-                    if (member.Email == "admin@admin.admin")
+                    if (member.Email == "admin")
                     {
                         NewBook newbook = new NewBook(libraryContext);
                         this.Close();
                         newbook.Show();
                     }
+
                     else
                     {
                         MessageBox.Show("Login successfully!");
@@ -78,12 +73,10 @@ namespace NowyProjekt
                         phoneBox.DataContext = currentMember;
                         passwordBox.DataContext = currentMember;
                         ID = member.Id;
-
-                        //wypisanie z bazy ksiazek do wypozyczenia
+                                               
                         var booksInStore = libraryContext.Books.Select(x => new { x.Id, x.Title }).ToList();
                         borrowCombobox.ItemsSource = booksInStore;
-
-                        //do comboboxa wypozyczone ksiazki
+                                                
                         var memberBorrowedBooks = (from b in libraryContext.Books
                                                    join o in libraryContext.Orders on b.Id equals o.BookId
                                                    join m in libraryContext.Members on o.MemberId equals m.Id
@@ -138,16 +131,18 @@ namespace NowyProjekt
                 string id = item.Split(',')[0];
                 int Id = Int32.Parse(id.Trim(znak));
 
+                var tex = borrowCombobox.Text;
+
                 NewOrder.Id = 0;
                 NewOrder.BookId = Id;
                 NewOrder.MemberId = ID;
 
-
-                MessageBox.Show("Successfully borrowed: " + borrowCombobox.Text + " from Library!");
+                
                 libraryContext.Orders.Add(NewOrder);
                 libraryContext.SaveChanges();
                 borrowCombobox.DataContext = new Order();
-                //libraryContext.ChangeTracker.Clear();
+
+                MessageBox.Show("Successfully borrowed: " + tex + " from Library!");
 
                 var memberBorrowedBooks = (from b in libraryContext.Books
                                            join o in libraryContext.Orders on b.Id equals o.BookId
@@ -159,6 +154,7 @@ namespace NowyProjekt
                                                Title=b.Title
                                            }
                                  ).ToList();
+
                 returnCombobox.ItemsSource = memberBorrowedBooks;
             }
 
@@ -200,6 +196,7 @@ namespace NowyProjekt
                                                Title = b.Title
                                            }
                                  ).ToList();
+
                 returnCombobox.ItemsSource = memberBorrowedBooks;
                 
             }

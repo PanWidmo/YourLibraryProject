@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
-        Title="Login" Height="700" Width="800">
+        Title="YourLibrary Login" Height="700" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid Background="#2e3137">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -16,6 +18,8 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Login" FontSize="30"/>
         <Button Content="To Register" FontSize="20"  Click="backToRegisterButton" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Exit" FontSize="20"  Click="exitButton" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
 
         <Grid Grid.Row="1" Margin="10,10,10,10">
             <Grid.ColumnDefinitions>
@@ -28,11 +32,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Email:"/>
-            <TextBox x:Name="emailTextBox" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="0" Foreground="#fff" VerticalAlignment="Center" FontSize="20" Grid.Column="0" Content="Email:"/>
+            <TextBox x:Name="emailTextBox" Height="30" VerticalAlignment="Center" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="1" Foreground="#fff" FontSize="20" Grid.Column="0" Content="Password:"/>
-            <TextBox x:Name="passwordTextBox" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="1" Foreground="#fff" VerticalAlignment="Center" FontSize="20" Grid.Column="0" Content="Password:"/>
+            <TextBox x:Name="passwordTextBox" VerticalAlignment="Center" Height="30" FontSize="20" Foreground="#fff" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding Password}"/>
 
         </Grid>
 
@@ -45,7 +49,7 @@
             <Button x:Name="logInButton" Content="Log in" MaxWidth="140"  Grid.Column="0" Foreground="#fff" Background="#545d6a" Click="logIn" Margin="10" FontSize="26"/>
             <Button x:Name="logOutButton" Content="Log out" Click="LogOut" MaxWidth="140"  Grid.Column="1" IsEnabled="False" Foreground="#fff" Background="#545d6a" Margin="10" FontSize="26"/>
         </Grid>
-        <Grid Grid.Row="3" x:Name="memberData" Visibility="Visible" Grid.RowSpan="2">
+        <Grid Grid.Row="3" x:Name="memberData" Visibility="Hidden" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -64,31 +68,31 @@
             </Grid.ColumnDefinitions>
 
 
-            <Label Grid.Row="0" Grid.Column="0" FontSize="20" Content="First Name:" Foreground="#fff"/>
-            <TextBox x:Name="firstNameBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+            <Label Grid.Row="0" VerticalAlignment="Center" Grid.Column="0" FontSize="20" Content="First Name:" Foreground="#fff"/>
+            <TextBox x:Name="firstNameBox" Height="30" VerticalAlignment="Center" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Last Name:" FontSize="20" Foreground="#fff"/>
-            <TextBox x:Name="lastNameBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
+            <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Content="Last Name:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="lastNameBox" Foreground="#fff" Height="30" VerticalAlignment="Center" FontSize="20" Background="#545d6a" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Email:" FontSize="20" Foreground="#fff"/>
-            <TextBox x:Name="emailBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Content="Email:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="emailBox" Foreground="#fff" Height="30" VerticalAlignment="Center" FontSize="20" Background="#545d6a" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Phone:" FontSize="20" Foreground="#fff"/>
-            <TextBox x:Name="phoneBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
+            <Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Content="Phone:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="phoneBox" Foreground="#fff" Height="30" VerticalAlignment="Center" FontSize="20" Background="#545d6a" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Password:" FontSize="20" Foreground="#fff"/>
-            <TextBox x:Name="passwordBox" Foreground="#fff" FontSize="20" Background="#545d6a" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Content="Password:" FontSize="20" Foreground="#fff"/>
+            <TextBox x:Name="passwordBox" Foreground="#fff" Height="30" VerticalAlignment="Center" FontSize="20" Background="#545d6a" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
 
             <Button x:Name="updateData" Click="Update" MaxWidth="160" FontSize="20" Foreground="#fff" Background="#545d6a" Content="Update" Grid.Column="3" Grid.Row="1"/>
             <Button x:Name="deleteData" Click="Delete" MaxWidth="160" FontSize="20" Foreground="#fff" Background="#545d6a" Content="Delete Account" Grid.Column="3" Grid.Row="3"/>
 
             <Label Grid.Row="5" Grid.Column="0" Foreground="#fff" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Borrow a book:"/>
-            <ComboBox x:Name="borrowCombobox" ItemsSource="{Binding booksInStore}" DisplayMemberPath="Title" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="200"/>
-            <Button x:Name="borrowButton" Content="Confirm " Grid.Row="7" Grid.Column="0" FontSize="20" Foreground="#fff" Background="#545d6a" Click="borrowButton_Click"/>
+            <ComboBox x:Name="borrowCombobox" FontSize="20" ItemsSource="{Binding booksInStore}" DisplayMemberPath="Title" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="200"/>
+            <Button x:Name="borrowButton" Width="160" Height="40" Content="Confirm " Grid.Row="7" Grid.Column="0" FontSize="20" Foreground="#fff" Background="#545d6a" Click="borrowButton_Click"/>
 
             <Label Grid.Row="5" Grid.Column="3" Foreground="#fff" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Return a book:"/>
-            <ComboBox x:Name="returnCombobox" ItemsSource="{Binding memberBorrowedBooks}" DisplayMemberPath="Title" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" Width="200"/>
-            <Button x:Name="returnButton" Content="Confirm" Grid.Row="7" Grid.Column="3" FontSize="20" Foreground="#fff" Background="#545d6a" Click="returnButton_Click"/>
+            <ComboBox x:Name="returnCombobox" FontSize="20" ItemsSource="{Binding memberBorrowedBooks}" DisplayMemberPath="Title" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" Width="200"/>
+            <Button x:Name="returnButton" Width="160" Height="40" Content="Confirm" Grid.Row="7" Grid.Column="3" FontSize="20" Foreground="#fff" Background="#545d6a" Click="returnButton_Click"/>
 
         </Grid>
 

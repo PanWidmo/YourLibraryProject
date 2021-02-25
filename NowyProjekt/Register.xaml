@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NowyProjekt"
         mc:Ignorable="d"
-        Title="Register" Height="450" Width="800">
+        Title="YourLibraryRegister" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid x:Name="AddNewMemberGrid" Background="#2e3137">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Register" FontSize="30"/>
+        <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Register" FontSize="34"/>
+        <Button Content="To Login" FontSize="20"  Click="toLogin" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Exit" FontSize="20"  Click="exitButton" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
@@ -28,25 +32,25 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:" FontSize="20"/>
+            <TextBox x:Name="firstNameTextBox" Foreground="#fff" Height="30" Background="#545d6a" FontSize="20" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" AutomationProperties.HelpText="Enter your Name here"/>
 
-            <Label Grid.Row="0" Foreground="#fff" Grid.Column="0" Content="First Name:" FontSize="16"/>
-            <TextBox x:Name="firstNameTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" AutomationProperties.HelpText="Enter your Name here"/>
+            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:" FontSize="20"/>
+            <TextBox x:Name="lastNameTextBox" Foreground="#fff" Height="30" Background="#545d6a" Grid.Row="1" FontSize="16" Grid.Column="1" Text="{Binding LastName}"/>
 
-            <Label Grid.Row="1" Foreground="#fff" Grid.Column="0" Content="Last Name:" FontSize="16"/>
-            <TextBox x:Name="lastNameTextBox" Foreground="#fff" Background="#545d6a" Grid.Row="1" FontSize="16" Grid.Column="1" Text="{Binding LastName}"/>
+            <Label Grid.Row="2" Foreground="#fff" Grid.Column="0" Content="Email:" FontSize="20"/>
+            <TextBox x:Name="emailTextBox" Foreground="#fff" Height="30" Background="#545d6a" FontSize="16" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
 
-            <Label Grid.Row="2" Foreground="#fff" Grid.Column="0" Content="Email:" FontSize="16"/>
-            <TextBox x:Name="emailTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
+            <Label Grid.Row="3" Foreground="#fff" Grid.Column="0" Content="Phone:" FontSize="20"/>
+            <TextBox x:Name="phoneTextBox" Foreground="#fff" Height="30" Background="#545d6a" FontSize="16" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
 
-            <Label Grid.Row="3" Foreground="#fff" Grid.Column="0" Content="Phone:" FontSize="16"/>
-            <TextBox x:Name="phoneTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
-
-            <Label Grid.Row="4" Foreground="#fff" Grid.Column="0" Content="Password:" FontSize="16"/>
-            <TextBox x:Name="passwordTextBox" Foreground="#fff" Background="#545d6a" FontSize="16" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
+            <Label Grid.Row="4" Foreground="#fff" Grid.Column="0" Content="Password:" FontSize="20"/>
+            <TextBox x:Name="passwordTextBox" Foreground="#fff" Height="30" Background="#545d6a" FontSize="16" Grid.Row="4" Grid.Column="1" Text="{Binding Password}"/>
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button Content="Submit" MaxHeight="80" MaxWidth="260" Background="#545d6a" Foreground="#fff" Click="AddNewMember" Margin="10" FontSize="40"/>
+            <Button Content="Submit" MaxHeight="70" MaxWidth="180" Background="#545d6a" Foreground="#fff" Click="AddNewMember" Margin="10" FontSize="34"/>
         </Grid>
 
     </Grid>
