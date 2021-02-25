@@ -180,16 +180,13 @@ namespace NowyProjekt
             {
 
                 var item = (OrderData)returnCombobox.SelectedItem;
-
                 var id = item.Id;
-
 
                 var tex = returnCombobox.Text;
 
                 var orderToDelete = libraryContext.Orders.Single(x => x.Id == id);
                 libraryContext.Orders.Remove(orderToDelete);
                 libraryContext.SaveChanges();
-                //borrowCombobox.DataContext = new Order();
 
                 MessageBox.Show("Successfully returned: " + tex + " to Library!");
 
