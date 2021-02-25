@@ -80,10 +80,6 @@ namespace NowyProjekt
                         ID = member.Id;
 
                         //wypisanie z bazy ksiazek do wypozyczenia
-                        //var booksInStore = (from Book in libraryContext.Books
-                        //         select Book.Title
-                        //         ).ToList();
-
                         var booksInStore = libraryContext.Books.Select(x => new { x.Id, x.Title }).ToList();
                         borrowCombobox.ItemsSource = booksInStore;
 
@@ -92,10 +88,10 @@ namespace NowyProjekt
                                                    join o in libraryContext.Orders on b.Id equals o.BookId
                                                    join m in libraryContext.Members on o.MemberId equals m.Id
                                                    where m.Email == emailTextBox.Text
-                                                   select new
+                                                   select new OrderData
                                                    {
-                                                       b.Id,
-                                                       b.Title
+                                                       Id = o.Id,
+                                                       Title = b.Title
                                                    }
                                  ).ToList();
                         returnCombobox.ItemsSource = memberBorrowedBooks;
@@ -142,28 +138,36 @@ namespace NowyProjekt
                 string id = item.Split(',')[0];
                 int Id = Int32.Parse(id.Trim(znak));
 
+                NewOrder.Id = 0;
                 NewOrder.BookId = Id;
                 NewOrder.MemberId = ID;
 
+
+                MessageBox.Show("Successfully borrowed: " + borrowCombobox.Text + " from Library!");
                 libraryContext.Orders.Add(NewOrder);
                 libraryContext.SaveChanges();
                 borrowCombobox.DataContext = new Order();
-                libraryContext.ChangeTracker.Clear();
+                //libraryContext.ChangeTracker.Clear();
 
                 var memberBorrowedBooks = (from b in libraryContext.Books
                                            join o in libraryContext.Orders on b.Id equals o.BookId
                                            join m in libraryContext.Members on o.MemberId equals m.Id
                                            where m.Email == emailTextBox.Text
-                                           select new
+                                           select new OrderData
                                            {
-                                               b.Id,
-                                               b.Title
+                                               Id=o.Id,
+                                               Title=b.Title
                                            }
                                  ).ToList();
                 returnCombobox.ItemsSource = memberBorrowedBooks;
-                MessageBox.Show("Successfully borrowed book from Library!");
             }
 
+        }
+
+        class OrderData
+        {
+            public int Id { get; set; }
+            public string Title { get; set; }
         }
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
@@ -175,32 +179,32 @@ namespace NowyProjekt
             else
             {
 
-                char[] znak = { '{', 'I', 'd', '=', ' ' };
-                string item = returnCombobox.SelectedItem.ToString();
+                var item = (OrderData)returnCombobox.SelectedItem;
 
-                string id = item.Split(',')[0];
-                int Id = Int32.Parse(id.Trim(znak));
+                var id = item.Id;
 
-                NewOrder.MemberId = ID;
-                NewOrder.BookId = Id;
 
-                libraryContext.Orders.Remove(NewOrder);
+                var tex = returnCombobox.Text;
+
+                var orderToDelete = libraryContext.Orders.Single(x => x.Id == id);
+                libraryContext.Orders.Remove(orderToDelete);
                 libraryContext.SaveChanges();
-                borrowCombobox.DataContext = new Order();
-                libraryContext.ChangeTracker.Clear();
+                //borrowCombobox.DataContext = new Order();
+
+                MessageBox.Show("Successfully returned: " + tex + " to Library!");
 
                 var memberBorrowedBooks = (from b in libraryContext.Books
                                            join o in libraryContext.Orders on b.Id equals o.BookId
                                            join m in libraryContext.Members on o.MemberId equals m.Id
                                            where m.Email == emailTextBox.Text
-                                           select new
+                                           select new OrderData
                                            {
-                                               b.Id,
-                                               b.Title
+                                               Id = o.Id,
+                                               Title = b.Title
                                            }
                                  ).ToList();
                 returnCombobox.ItemsSource = memberBorrowedBooks;
-                MessageBox.Show("Successfully returned book to Library!");
+                
             }
         }
     }
