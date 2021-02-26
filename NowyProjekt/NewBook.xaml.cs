@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Windows;
-using NowyProjekt.Model;
+using YourLibrary.Model;
 
-namespace NowyProjekt
+namespace YourLibrary
 {
     /// <summary>
     /// Interaction logic for NewBook.xaml

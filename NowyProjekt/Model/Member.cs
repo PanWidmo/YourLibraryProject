@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace NowyProjekt.Model
+namespace YourLibrary.Model
 {
     public class Member
     {

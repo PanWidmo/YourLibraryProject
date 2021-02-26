@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace NowyProjekt.Model
+namespace YourLibrary.Model
 {
     public class LibraryContext : DbContext
     {

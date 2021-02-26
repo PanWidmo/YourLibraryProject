@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NowyProjekt.Model;
+using YourLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 
-namespace NowyProjekt
+namespace YourLibrary
 {
     /// <summary>
     /// Interaction logic for App.xaml
