@@ -16,6 +16,9 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button Content="To Main Window" FontSize="20"  Click="backToMainWindow" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Exit" FontSize="20" Click="exitButton" Foreground="#fff" Background="#545d6a" Width="160" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
         <Label Grid.Row="0" Foreground="#fff" HorizontalAlignment="Center" Content="Add new book to library" FontSize="30"/>
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>

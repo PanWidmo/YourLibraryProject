@@ -46,7 +46,6 @@ namespace NowyProjekt
             {
                 libraryContext.Add(NewMember);
                 libraryContext.SaveChanges();
-                NewMember = new Member();
 
                 MessageBox.Show("Welcome aboard: " + firstNameTextBox.Text + " " + lastNameTextBox.Text + "!");
 

@@ -45,5 +45,17 @@ namespace NowyProjekt
                 titleTextBox.Text = "";
             }
         }
+
+        private void exitButton(object s, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void backToMainWindow(object s, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow(libraryContext);
+            this.Close();
+            main.Show();
+        }
     }
 }
